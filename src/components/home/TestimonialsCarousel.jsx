@@ -7,11 +7,24 @@ import { Button } from '@/components/ui/button';
 export default function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const { data: testimonials = [], isLoading } = useQuery({
+  const { data: testimonialsApi = [], isLoading } = useQuery({
     queryKey: ['testimonials-featured'],
     queryFn: () => base44.entities.Testimonial.filter({ featured: true, approved: true }),
     initialData: []
   });
+
+  // Add Lauren L.'s testimonial as a featured testimonial
+  const testimonials = [
+    {
+      client_name: 'Lauren L.',
+      quote: "We couldn’t be happier with the progress our 11-year-old son has made since training with Coach Herring. In a relatively short amount of time, we’ve seen a noticeable improvement in his endurance, speed, and agility.",
+      rating: 5,
+      client_photo_url: '',
+      program_type: '',
+      featured: true
+    },
+    ...testimonialsApi
+  ];
 
   useEffect(() => {
     if (testimonials.length === 0) return;
