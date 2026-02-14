@@ -26,7 +26,7 @@ export default function Layout({ children, currentPageName }) {
     { name: 'Start', path: 'Home' },
     { name: 'Programs', path: 'Services' },
     { name: 'Philosophy', path: 'About' },
-    { name: 'Results', path: 'Testimonials' }
+    { name: 'Results', path: 'Results' }
   ];
 
   return (

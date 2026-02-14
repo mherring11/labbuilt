@@ -26,23 +26,25 @@ export default function Results() {
       <section className="py-24 bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h2 className="text-4xl font-black text-slate-900 mb-12 text-center">Client Testimonials</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-4 shadow border border-slate-100 flex flex-col items-center">
-                <div className="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-slate-900 font-black text-lg mb-2">
-                  {testimonial.client_name[0]}
+          <div className="w-full flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 place-items-center w-full max-w-5xl">
+              {testimonials.map((testimonial, idx) => (
+                <div key={idx} className="bg-white rounded-lg p-4 shadow border border-slate-100 flex flex-col items-center w-full max-w-xs mx-auto">
+                  <div className="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-slate-900 font-black text-lg mb-2">
+                    {testimonial.client_name[0]}
+                  </div>
+                  <div className="font-bold text-slate-900 text-xs mb-1">{testimonial.client_name}</div>
+                  <div className="flex mb-2">
+                    {Array.from({ length: testimonial.rating || 5 }).map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <blockquote className="text-slate-700 text-xs text-center leading-snug">
+                    "{testimonial.quote}"
+                  </blockquote>
                 </div>
-                <div className="font-bold text-slate-900 text-xs mb-1">{testimonial.client_name}</div>
-                <div className="flex mb-2">
-                  {Array.from({ length: testimonial.rating || 5 }).map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <blockquote className="text-slate-700 text-xs text-center leading-snug">
-                  "{testimonial.quote}"
-                </blockquote>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
