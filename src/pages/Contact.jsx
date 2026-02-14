@@ -22,12 +22,22 @@ export default function Contact() {
 
   const submitMutation = useMutation({
     mutationFn: async (data) => {
-      await base44.entities.ContactSubmission.create({
-        ...data,
-        email: 'support@labbuilt210.com',
-        status: 'new',
-        source: 'website_contact_form'
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.full_name,
+          email: data.email,
+          message: `Phone: ${data.phone}\nPreferred Start Date: ${data.preferred_start_date}\nService Type: ${data.service_type}\nGoals: ${data.goals}`
+        })
       });
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText);
+      }
+    },
     },
     onSuccess: () => {
       toast.success('Message sent! We will get back to you within 24 hours.');
