@@ -19,8 +19,8 @@ export default async function handler(req, res) {
         },
         to: [
           {
-            email: "m.herring11@yahoo.com",
-            name: "Michael",
+            email: "support@labbuilt210.com",
+            name: "Support",
           },
         ],
         subject: "New Contact Form Submission",
