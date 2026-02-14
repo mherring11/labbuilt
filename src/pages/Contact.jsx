@@ -24,6 +24,7 @@ export default function Contact() {
     mutationFn: async (data) => {
       await base44.entities.ContactSubmission.create({
         ...data,
+        email: 'support@labbuilt210.com',
         status: 'new',
         source: 'website_contact_form'
       });
