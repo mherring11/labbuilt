@@ -111,73 +111,7 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Results Gallery */}
-      <section className="py-24 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-6">Transformation Gallery</h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Visual proof of what dedication and expert coaching can achieve.
-            </p>
-          </div>
-
-          {results.length === 0 ? (
-            <div className="text-center text-slate-400">No results to display yet.</div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {results.map((result) => (
-                <div
-                  key={result.id}
-                  className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border border-slate-700"
-                >
-                  <div className="grid grid-cols-2 gap-2 p-4">
-                    {result.before_photo_url && (
-                      <div className="relative">
-                        <img
-                          src={result.before_photo_url}
-                          alt="Before"
-                          className="w-full h-48 object-cover rounded-lg"
-                        />
-                        <div className="absolute bottom-2 left-2 bg-slate-900/80 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-bold">
-                          Before
-                        </div>
-                      </div>
-                    )}
-                    {result.after_photo_url && (
-                      <div className="relative">
-                        <img
-                          src={result.after_photo_url}
-                          alt="After"
-                          className="w-full h-48 object-cover rounded-lg"
-                        />
-                        <div className="absolute bottom-2 left-2 bg-amber-400 px-3 py-1 rounded-full text-slate-900 text-xs font-bold">
-                          After
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-6">
-                    {result.client_name && (
-                      <h4 className="font-bold text-white mb-2">{result.client_name}</h4>
-                    )}
-                    <p className="text-slate-300 text-sm mb-4">{result.description}</p>
-                    
-                    <div className="flex items-center justify-between">
-                      <span className="bg-amber-400 text-slate-900 px-3 py-1 rounded-full text-xs font-bold capitalize">
-                        {result.category.replace(/_/g, ' ')}
-                      </span>
-                      {result.duration_weeks && (
-                        <span className="text-slate-400 text-xs">{result.duration_weeks} weeks</span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+      {/* Results Gallery removed. Only testimonials and ContactCTA remain. */}
 
       <ContactCTA />
     </div>
