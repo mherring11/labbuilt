@@ -42,6 +42,26 @@ export default function Testimonials() {
             <div className="text-center text-slate-600">No testimonials available yet.</div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Hardcoded testimonial from Lauren L. */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-slate-100">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 rounded-full bg-amber-400 flex items-center justify-center text-slate-900 font-black text-2xl">
+                    L
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900">Lauren L.</div>
+                  </div>
+                </div>
+                <div className="flex mb-4">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <blockquote className="text-slate-700 leading-relaxed mb-4">
+                  "We couldn’t be happier with the progress our 11-year-old son has made since training with Coach Herring. In a relatively short amount of time, we’ve seen a noticeable improvement in his endurance, speed, and agility."
+                </blockquote>
+              </div>
+              {/* Render the rest of the testimonials */}
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
