@@ -52,15 +52,16 @@ import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Testimonials from './pages/Testimonials';
+import Results from './pages/Results';
 import __Layout from './Layout.jsx';
 
 
-export const PAGES = {
     "About": About,
     "Contact": Contact,
     "Home": Home,
     "Services": Services,
     "Testimonials": Testimonials,
+    "Results": Results,
 }
 
 export const pagesConfig = {
