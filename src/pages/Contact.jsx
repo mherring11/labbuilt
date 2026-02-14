@@ -21,43 +21,45 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const submitMutation = useMutation({
-    mutationFn: async (data) => {
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: data.full_name,
-          email: data.email,
-          message: `Phone: ${data.phone}\nPreferred Start Date: ${data.preferred_start_date}\nService Type: ${data.service_type}\nGoals: ${data.goals}`
-        })
-      });
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(errorText);
-      }
-    },
-    },
-    onSuccess: () => {
-      toast.success('Message sent! We will get back to you within 24 hours.');
-      setIsSubmitted(true);
-      setFormData({
-        full_name: '',
-        email: '',
-        phone: '',
-        preferred_start_date: '',
-        service_type: '',
-        goals: ''
-      });
-      // Reset success state after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    },
-    onError: (error) => {
-      console.error('Contact form submission error:', error);
-      toast.error('Something went wrong. Please try again or email us directly at support@labbuilt210.com');
+  mutationFn: async (data) => {
+    const response = await fetch('/api/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: data.full_name,
+        email: data.email,
+        message: `Phone: ${data.phone}\nPreferred Start Date: ${data.preferred_start_date}\nService Type: ${data.service_type}\nGoals: ${data.goals}`
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText);
     }
-  });
+  },
+
+  onSuccess: () => {
+    toast.success('Message sent! We will get back to you within 24 hours.');
+    setIsSubmitted(true);
+    setFormData({
+      full_name: '',
+      email: '',
+      phone: '',
+      preferred_start_date: '',
+      service_type: '',
+      goals: ''
+    });
+    setTimeout(() => setIsSubmitted(false), 5000);
+  },
+
+  onError: (error) => {
+    console.error('Contact form submission error:', error);
+    toast.error('Something went wrong. Please try again or email us directly at support@labbuilt210.com');
+  }
+});
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
