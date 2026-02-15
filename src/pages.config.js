@@ -1,3 +1,5 @@
+import SpringBreakCampRegister from './pages/SpringBreakCampRegister';
+import SpringBreakSpeedCamp from './pages/SpringBreakSpeedCamp';
 /**
  * pages.config.js - Page routing configuration
  * 
@@ -63,6 +65,8 @@ export const PAGES = {
     "Services": Services,
     "Testimonials": Testimonials,
     "Results": Results,
+    "spring-break-speed-camp": SpringBreakSpeedCamp,
+    "spring-break-speed-camp/register": SpringBreakCampRegister,
 };
 
 export const pagesConfig = {

@@ -13,8 +13,15 @@ const testimonials = [
 export default function Results() {
   return (
     <div>
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 py-24">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+      <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 py-24 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <img
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69234111cd92a5db1dcb3e37/def5606fb_coach-mike.jpg"
+            alt="Success Stories Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
             Success Stories
           </h1>

@@ -25,6 +25,7 @@ export default function Layout({ children, currentPageName }) {
   const navItems = [
     { name: 'Start', path: 'Home' },
     { name: 'Programs', path: 'Services' },
+    { name: 'Spring Break Camp', path: 'spring-break-speed-camp' },
     { name: 'Philosophy', path: 'About' },
     { name: 'Results', path: 'Results' }
   ];
